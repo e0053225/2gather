@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -20,6 +21,7 @@ import org.primefaces.model.DefaultScheduleModel;
 import org.primefaces.model.LazyScheduleModel;
 import org.primefaces.model.ScheduleEvent;
 import org.primefaces.model.ScheduleModel;
+import session.EventController;
 
 /**
  *
@@ -29,8 +31,11 @@ import org.primefaces.model.ScheduleModel;
 @ViewScoped
 public class scheduleManagedBean implements Serializable {
  
+    
     private ScheduleModel eventModel;
-     
+    
+     @EJB
+     private EventController eventM;
     private ScheduleModel lazyEventModel;
  
     private ScheduleEvent event = new DefaultScheduleEvent();
