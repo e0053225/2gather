@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:tr="http://myfaces.apache.org/trinidad"
+                template="template.xhtml"
+                xmlns:p="http://primefaces.org/ui">
+
+
+    <body style="background-color: #CADCEB;">
+        <ui:define name="title">
+            Search Users
+        </ui:define>
+
+        <ui:define name="content">
+            <h:form> <h:commandButton value="Refresh Dashboard" actionListener="#{friendsManagedBean.getAllUsers}"/> </h:form>
+            <h:form id="form">
+                 
+                 
+                <p:growl id="growl" showDetail="true" sticky="true" /> 
+
+                <p:dataTable widgetVar="customersTable" 
+                             var="user" 
+                             value="#{friendsManagedBean.users}" 
+                             resizableColumns="true"
+                             emptyMessage="No users found with given criteria">
+
+
+                    <p:column headerText="name">
+                        <h:outputText value="#{user.name}"/>
+                    </p:column>
+                    
+
+                    <p:column headerText="Friend">
+                        
+                        <p:commandButton icon="fa fa-fw fa-user-plus" action="#{friendAndUnfriendManagedBean.friend(user)}" update=":form" title="Friend">
+                            <f:param value="#{user}" />    
+                            
+                        </p:commandButton>
+                    </p:column>
+
+                    <p:column headerText="unFriend">
+
+                        <p:commandButton icon="fa fa-fw fa-user-times" action="#{friendAndUnfriendManagedBean.unFriend(user)}" update=":form" title="unFriend">
+                            <f:param value="#{user}" />                    
+                        </p:commandButton>
+                    </p:column>
+
+
+
+
+                </p:dataTable>
+
+
+
+            </h:form>
+        </ui:define>
+    </body>
+
+
+</ui:composition>

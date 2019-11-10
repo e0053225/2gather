@@ -1,0 +1,108 @@
+/*
+    Document   : base
+    Created on : 30.11.2010, 19:24:44
+    Author     : Tobi
+    Description:
+        Purpose of the stylesheet follows.
+
+    /* Runde Ecken CSS3 Feature
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+*/
+
+#banner {
+ height: 100px;
+ background-image: url("../img/bg.gif");
+ background-position: left;
+}
+
+.header {
+ background-color: #CADCEB;
+ height: 40px;
+ -webkit-border-radius: 10px;
+ -khtml-border-radius: 10px;
+ -moz-border-radius: 10px;
+ border-radius: 10px;
+ margin-bottom: 10px;
+ text-align: center;
+}
+
+#middle {
+ width: 1300px;
+ margin: 60px auto 0;
+}
+
+.titleBarText {
+ margin: auto 0;
+ padding-top: 10px;
+
+}
+
+#content {
+ width: 900px;
+ margin: 60px auto 0;
+}
+
+#sidebar_left {
+ font-family: "helvetica neue",arial,helvetica,sans-serif;
+ width: 170px;
+ float: left;
+ margin-top: 50px;
+}
+
+#sidebar_left_head {
+ background-image: url("../img/bg.gif");
+ background-repeat: repeat;
+ -moz-border-radius-topleft: 5px;
+ -moz-border-radius-topright: 5px;
+ border: 1px solid #4E636D;
+ height: 25px;
+ padding-left: 5px;
+ position: relative;
+ background-color: #999EAD;
+ font-weight: bold;
+ padding-top: 5px;
+ color: white;
+}
+
+#sidebar_left_foot {
+ height: 190px;
+ border: 1px solid black;
+ position: relative;
+ padding-top: 5px;
+ padding-left: 5px;
+}
+
+#baseTables {
+ margin: auto;
+}
+
+#sidebar_left_foot *{
+ color: black;
+ padding-top: 2px;
+}
+
+#sidebar_right {
+ font-family: sans-serif;
+ width: 170px;
+ height: 200px;
+ top: 30px;
+ position: relative;
+
+}
+
+#sidebar_right_head {
+ border: 1px solid black;
+ height: 40px;
+ position: relative;
+ float: left;
+}
+
+#sidebar_right_foot {
+ height: 160px;
+ border: 1px solid black;
+ position: relative;
+
+}

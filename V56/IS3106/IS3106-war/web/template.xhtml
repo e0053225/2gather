@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+       >
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/general.css" />
+        <link rel="stylesheet" type="text/css" href="css/table.css" />
+ 
+        <title>JSF-Forum</title>
+    </h:head>
+    <h:body>
+      <div id="banner">
+        <ui:include src="banner.xhtml" id="header"/>
+    </div>
+    
+        
+    <div id="middle">
+
+        
+        
+       <div id="content">
+        <div class="header">
+        <ui:include src="header1.xhtml" />
+        </div>
+
+        <ui:insert name="content" />
+       </div>
+    </div>
+
+
+
+    </h:body>
+</html>
+
+
+

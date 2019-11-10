@@ -1,0 +1,32 @@
+#header,
+#footer {
+    min-height: 40px;
+}
+
+.info { min-height: 80px; }
+
+/* layout */
+#main-wrap {
+    /* overflow to handle inner floating block */
+    overflow: hidden;
+}
+
+#sidebar {
+    float: left;
+    width: 30%;
+}
+
+#content-wrap {
+    float: right;
+    width: 70%;
+}
+
+#info-wrap {
+    /* overflow to handle inner floating block */
+    overflow: hidden;
+}
+
+.info {
+    width: 50%;
+    float: left;
+}

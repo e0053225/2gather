@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      >
+
+
+
+
+    <h:head>
+        <title>HELLO Title</title>
+    </h:head>
+
+
+    <div>
+        HIIIII<br></br>
+    </div>
+
+
+    <style type="text/css">
+
+        .center1{
+            width:80%;
+            min-height: 100%!important
+        }
+    </style>
+
+
+    <h:form>
+        <p:layout style="min-width:800px; min-height: 1400px">
+            <p:layoutUnit position="north">
+                <h:form>
+                    <h:link id="Home"  value="Home" outcome="index" />
+                    / <h:link id="Profile" value="Profile" outcome="editUser" />
+                    /<h:link id="friendsList" value="friendsList" outcome="friendsList"/>
+                    /<h:link id="autoComplete" value="Add note" outcome="autoComplete"/>
+                    /<h:commandLink id="Logout" value="Logout" immediate="true" action="#{Session.logout}" />
+                </h:form>
+            </p:layoutUnit>
+            <p:layoutUnit position="center">
+                <p:growl id="messages" showDetail="true" />
+
+                <h:panelGrid columnClasses="value">
+                    <!-- date select, event select, event move, event resize -->
+                    <h3 style="margin-top: 0">Editable Schedule</h3>
+                    <p:schedule id="schedule" value="#{scheduleManagedBean.eventModel}" widgetVar="myschedule" timeZone="GMT+8">
+
+                        <p:ajax event="dateSelect" listener="#{scheduleManagedBean.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+                        <p:ajax event="eventSelect" listener="#{scheduleManagedBean.onEventSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+                        <p:ajax event="eventMove" listener="#{scheduleManagedBean.onEventMove}" update="messages" />
+                        <p:ajax event="eventResize" listener="#{scheduleManagedBean.onEventResize}" update="messages" />
+
+                    </p:schedule>
+
+
+
+                </h:panelGrid>
+
+                <p:dialog widgetVar="eventDialog" header="Event Details" showEffect="clip" hideEffect="clip">
+                    <h:panelGrid id="eventDetails" columns="2">
+                        <!-- from, to, start, end, all day, add event, reset -->
+                        <p:outputLabel for="title" value="Titles:" />
+                        <p:inputText id="title" value="#{scheduleManagedBean.event.title}" required="true" />
+
+                        <p:outputLabel for="from" value="From:" />
+                        <p:calendar id="from" value="#{scheduleManagedBean.event.startDate}" timeZone="GMT+8" pattern="dd/MM/yyyy HH:mm"/>
+
+                        <p:outputLabel for="to" value="To:" />
+                        <p:calendar id="to" value="#{scheduleManagedBean.event.endDate}" timeZone="GMT+8" pattern="dd/MM/yyyy HH:mm"/>
+
+                        <p:outputLabel for="allDay" value="All Day:" />
+                        <h:selectBooleanCheckbox id="allDay" value="#{scheduleManagedBean.event.allDay}" />
+
+                        <p:commandButton type="reset" value="Reset" />
+                        <p:commandButton id="addButton" value="Save" action="#{scheduleManagedBean.addEvent}" oncomplete="PF('myschedule').update();PF('eventDialog').hide();" />
+                    </h:panelGrid>
+                </p:dialog>
+                <div id = "schedule">
+
+                    <script type="text/javascript">
+                        PrimeFaces.locales['en'] = {
+                            closeText: 'close',
+                            prevText: 'back',
+                            nextText: 'next',
+                            currentText: 'today',
+                            monthNames: ['January', 'Februray', 'March', 'April', 'May', 'June',
+                                'July', 'August', 'September', 'October', 'November', 'December'],
+                            monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                            dayNames: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                            dayNamesShort: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                            dayNamesMin: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                            weekHeader: 'Wk',
+                            firstDay: 1,
+                            isRTL: false,
+                            showMonthAfterYear: false,
+                            yearSuffix: '',
+                            month: 'month',
+                            week: 'week',
+                            day: 'day',
+                            allDayText: 'all day'
+                        };
+                    </script>
+                </div>
+            </p:layoutUnit>
+            <p:layoutUnit position="west" style="width:100px">
+                 <div style="height:100px">
+                    <h:form>
+                        <p:growl id="msgs" showDetail="true" />
+
+                        <p:dashboard id="board" model="#{dashBoardManagedBean.model}">
+                            <p:ajax event="reorder" listener="#{dashBoardManagedBeanardView.handleReorder}" update="msgs" />
+
+                            <p:panel id="sports" header="#{dashBoardManagedBean.viewNoteTitleForUserById(1)}">
+                                <h:outputText value="#{dashBoardManagedBean.viewNoteMessageForUserById(1)}" />
+                            </p:panel>
+
+                            <p:panel id="finance" header="#{dashBoardManagedBean.viewNoteTitleForUserById(2)}">
+                                <h:outputText value="#{dashBoardManagedBean.viewNoteMessageForUserById(2)}" />
+                            </p:panel>
+
+                            <p:panel id="lifestyle" header="#{dashBoardManagedBean.viewNoteTitleForUserById(3)}">
+                                <h:outputText value="#{dashBoardManagedBean.viewNoteMessageForUserById(3)}"  />
+                            </p:panel>
+
+                            <p:panel id="weather" header="#{dashBoardManagedBean.viewNoteTitleForUserById(4)}">
+                                <h:outputText value="#{dashBoardManagedBean.viewNoteMessageForUserById(4)}" />
+                            </p:panel>
+
+                            <p:panel id="politics" header="Politics">
+                                <h:outputText value="Politics Content" />
+                            </p:panel>
+
+                            <p:panel id="title" header="title">
+                                <h:inputText value="#{dashBoardManagedBean.addMessage()}"  />
+                            </p:panel>
+
+                            <p:panel id="shiitt" header="shit">
+                                <h:outputText value="Weather Content" />
+                            </p:panel>
+
+                            <p:panel id="crap" header="crap">
+                                <h:outputText value="#{session.valueNames}" />
+                            </p:panel>
+
+
+                        </p:dashboard>
+
+                        <div style="clear:both" />
+
+
+                    </h:form>
+                </div>
+
+                <ui:insert name="content"> </ui:insert>
+            </p:layoutUnit>
+            <p:layoutUnit position="east" style="width:100px">
+                <div> there should be something</div>
+            </p:layoutUnit>
+            
+        </p:layout>
+
+    </h:form>
+
+
+
+
+</html>
+
