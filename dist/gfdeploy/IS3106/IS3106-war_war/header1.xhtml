@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <div class="titleBarText">
+        <h:form>
+            <h:link id="Home"  value="Home" outcome="index" />
+
+             / <h:link id="Register" value="Register" outcome="register" /> 
+            
+           
+         
+
+
+            <c:if test="#{Session.loggedIn()}">
+                /<h:link id="friendsList" value="friendsList" outcome="friendsList"/>
+                
+                / <h:link id="schedule" value="Schdeule" outcome="schedule" />
+                 
+                
+                /<h:commandLink id="Logout" value="Logout" immediate="true" action="#{Session.logout}" />
+
+            </c:if>
+        </h:form>
+    </div>
+</ui:composition>

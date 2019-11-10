@@ -1,0 +1,95 @@
+/* 
+    Document   : general
+    Created on : 03.12.2010, 20:16:31
+    Author     : Tobi
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+    /* Runde Ecken CSS3 Feature
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+
+    -webkit-box-shadow: 5px 5px 5px #000000;
+    -moz-box-shadow: 5px 5px 5px #000000;
+    -box-shadow: 5px 5px 5px #000000;
+
+   
+   */
+
+.baseTable {
+    list-style-type: none;
+    width: 80%;
+    color: white;
+    font-size: medium;
+    padding: 5px;
+    margin: 10px auto 10px;
+    border-spacing: 0px;
+    background: none repeat-x scroll 0 0;
+    background-image: url("../img/bg.gif");
+    background-repeat: repeat;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 12px;	
+}
+
+.baseTable th.forum{
+    height: 30px;
+    width: 50%;
+    padding-left: 5px;
+    text-align: left;
+    position: relative;
+    color: white;
+    
+}
+
+.tableTitle {
+    position: relative;
+    clear: none;
+    top: 5px;
+}
+
+.baseTable th.topics{
+    width: 8%;
+    color: white;
+}
+.baseTable th.last_post{
+    width: 8%;
+    color: white;
+}
+.baseTable th.posts{
+    width: 8%;
+    color: white;
+}
+
+.baseTable tr {    
+    color: white;
+    font-family: Verdana,Helvetica,Arial,sans-serif;
+    text-align: center;
+}
+
+.baseTable td {
+    background-color: #D3E0EB;
+    border-top: solid white 1px;
+    border-bottom: solid #00608F 1px;
+    color: #4C5D77;
+    height: 50px;
+}
+
+.baseTable td.forum{
+    padding-left: 35px;
+    padding-top: 0px;
+    text-align: left;
+    background-image: url(../img/forum.gif);
+    background-repeat: no-repeat;
+
+}
+
+

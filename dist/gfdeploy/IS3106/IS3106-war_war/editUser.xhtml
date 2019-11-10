@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="template.xhtml">
+                <!--  xmlns:tr="http://myfaces.apache.org/trinidad" -->
+
+
+
+
+    <ui:define name="title">
+        Edit User
+    </ui:define>
+
+
+    <ui:define name="content">
+        <h:form id="form">
+            <!-- using growl -->
+            <p:growl id="growl" showDetail="true" sticky="true" />
+            <p:panelGrid columns="2">
+                <f:facet name="header">
+                    Edit customer
+                </f:facet>
+                <h:outputLabel for="firstname">firstname: </h:outputLabel>
+                <p:inputText id="firstname" value="#{customerManagedBean.selectedUser.firstname}" 
+                             required="true" 
+                             requiredMessage="firstname is required" />
+               
+                <h:outputLabel for="firstname">Email: </h:outputLabel>
+                <p:inputText id="email" value="#{customerManagedBean.selectedUser.email}" 
+                             required="true" 
+                             requiredMessage="Email is required" />
+                
+               
+            </p:panelGrid>
+
+            <p:commandButton value="Submit" 
+                             actionListener="#{customerManagedBean.updateUser()}" 
+                             action="profile.xhtml?faces-redirect=true"
+                             />
+        </h:form>
+    </ui:define>
+
+
+</ui:composition>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:tr="http://myfaces.apache.org/trinidad"
+                template="template.xhtml">
+
+
+    <body style="background-color: #CADCEB;">
+        <ui:define name="content">
+
+
+            <div class="content">
+
+                <span class="title">Register</span>
+                <hr/><br/>
+
+                <h:form id="createUser">
+
+                    <h:panelGrid cellspacing="10" columns="3">
+
+
+
+                      
+                        <h:outputText value="username" />
+                        <h:inputText id="username" autocomplete="true" value="#{registerBean.username}" required="true" size="20"/>
+                        <h:message errorClass="ERROR" for="username"/>
+
+
+                        <h:outputText value="password" />
+                        <h:inputSecret id="password" label="password" value="#{registerBean.password}" size="20" required="true"/>
+                        <h:message errorClass="ERROR" for="password"/>
+
+                        <h:outputText value="password confirmation" />
+                        <h:inputSecret id="password2" value="#{registerBean.password2}" requiredMessage="#{msg.password_confirmation_required}" required="true"/>
+                        <h:message errorClass="ERROR" for="password2"/>
+
+                        <h:outputText value="email" />
+                        <h:inputText id="email" autocomplete="true" value="#{registerBean.email}" label="email" size="20" required="true"/>
+                        <h:message errorClass="ERROR" for="email"/>
+
+                        <h:commandButton value="Register" action="#{registerBean.register}" /> 
+
+                    </h:panelGrid>
+
+                </h:form>
+            </div>
+        </ui:define>
+    </body>
+</ui:composition>
