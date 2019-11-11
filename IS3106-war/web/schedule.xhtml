@@ -95,14 +95,17 @@
 
                     <p:outputLabel for="allDay" value="All Day:" />
                     <h:selectBooleanCheckbox id="allDay" value="#{scheduleManagedBean.event.allDay}" />
-
+                    
+                    <p:outputLabel value="Event Category" for="dd" />
+                    <p:autoComplete id="dd" dropdown="true" value="#{scheduleManagedBean.category}" required="true" completeMethod="#{scheduleManagedBean.completeCategory}" />
+                    
+                  
+                   
     
                     <p:outputLabel value="Invite People" for="users" />
                     <p:autoComplete id="users" multiple="true" value="#{scheduleManagedBean.selectedUsers}" completeMethod="#{scheduleManagedBean.completeUser}"
                                     var="user" itemLabel="#{user.name}" itemValue="#{user}" converter="themeConverter" forceSelection="true">
-                        <p:column style="width:10%">
-                            <h:graphicImage name="images/goose.jpg"/>
-                        </p:column>
+                       
 
 
                         <p:column>
@@ -110,7 +113,7 @@
                         </p:column>
                     </p:autoComplete>
                     
-                
+               
                     <p:commandButton id="addButton" value="Save" action="#{scheduleManagedBean.addEvent}" oncomplete="PF('myschedule').update();PF('eventDialog').hide();" />
                 </h:panelGrid>
             </p:dialog>    
