@@ -1,0 +1,68 @@
+/* 
+    Document   : general
+    Created on : 03.12.2010, 20:16:31
+    Author     : Tobi
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+* {
+    padding: 0px;
+    margin: 0px;
+    color: #105289;
+    font-family: Verdana,Helvetica,Arial,sans-serif;
+}
+input {
+    border: 1px solid #C0C0C0;
+    color: black;
+}
+
+input:focus {
+    border: 1px solid #11A3EA;
+}
+body {
+    height: 100%;
+}
+
+a {
+    font-family: Verdana,Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 2px;
+    margin: 2px;
+    color: #105289;
+    font-size: 14px;
+    
+}
+
+#small {
+    font-size: smaller;
+}
+
+.content {
+    background-color: #ECF1F3;
+    position: relative;
+    padding: 20px;
+    padding-left: 50px;
+}
+
+.content .title {
+    color: black;
+    font-weight: bold;
+}
+
+.content input {
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.ERROR{
+    color: red;
+}
+
+
+
